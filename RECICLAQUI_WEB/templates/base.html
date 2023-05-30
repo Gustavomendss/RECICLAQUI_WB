@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+  <title>
+
+        {% block title %}
+            RECICLAQUI Application
+        {% endblock %}
+
+
+    </title>
+    <link rel="shortcut icon" href="/static/img/favicon.png"/>
+    <!link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!link rel="stylesheet" href='/static/css/base.css'/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container">
+        <p>
+        </p>
+      </div>
+    </div>
+    <p>
+
+    {% load static %} <img id = "logo" src="/static/img/home2.png" alt="home" style="width:150px;height:150px />
+
+    </p>
+
+
+    <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-12" >
+            <div class="panel panel-default text-left">
+              <div class="panel-body" >
+                <h4 contenteditable="true">Olá bem-vindo ao RECICLAQUI ! <br>
+                    Encontre aqui o ecoponto mais próximo para o descarte regular. &#9200; &#128079
+                    </h4>
+
+                   <div class="row">
+                       <button onclick="myFunction()">Realizar Logout!</button>
+                   </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <h2>
+          Ecopontos do município de São Paulo
+        </h2>
+
+
+
+           <div
+                   id="MAPA"
+                   style = "width: 1400px; height: 800px"
+                    {{ map | safe }}>
+
+
+           </div>
+
+
+
+        <div class="row">
+          <div class="col-sm-9">
+          {% for todo in list_todo %}
+            {% if not todo.status %}
+              <!--
+                <div class="well">
+                  <h4>{{ todo.name }}</h4>
+                  <a href="{% url 'mark_as_done' todo.id  %}">Marcar como realizado   &#9989;</a>
+                </div>
+            {% endif %}
+          {% endfor %}
+              -->
+          </div>
+        </div>
+
+        <h2>
+            Projeto integrador 1
+
+          <!Inserir endereço para procura<>
+
+        </h2>
+      </div>
+
+        <div class="col-sm-9">
+            <!--
+          <div class="well">
+
+              <form method="POST" action="{% url 'new_todo' %}" id="input-text" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <input type="textarea" style="width: 450px;" name="todo-name">
+
+              <button type="submit" value="Submit" class="btn btn-primary">Pesquisar Ecoponto </button>
+                -->
+
+            </form>
+          </div>
+        </div>
+
+
+
+
+
+  </div>
+  </div>
+</div>
+</body>
+
+<style>
+
+body {
+
+  color: auto;
+
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(31,29,49,0.9809441339401972) 99%);
+
+}
+.dark-mode {
+  background-color: black;
+  color: auto;
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.text-center {
+  text-align: center;
+
+
+}
+
+
+
+h2 {
+color: white;
+margin: 20px 20px
+
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  max-height:100%;
+}
+
+
+
+</style>
+
+<script>
+  function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+  }
+</script>
+</html>
